@@ -32,10 +32,10 @@ public class CommonsPool2GenericObjectPoolBenchmark extends ObjectPoolBenchmark<
 
     @Override
     public void setupObjectPool() {
-        GenericObjectPoolConfig config = new GenericObjectPoolConfig();
+        GenericObjectPoolConfig<TestObject> config = new GenericObjectPoolConfig<>();
         config.setMaxTotal(poolSize);
 
-        objectPool = new GenericObjectPool<>(new BasePooledObjectFactory<TestObject>() {
+        objectPool = new GenericObjectPool<>(new BasePooledObjectFactory<>() {
             @Override
             public TestObject create() throws Exception {
                 return new TestObject(true);

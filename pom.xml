@@ -83,6 +83,12 @@
             <artifactId>stormpot</artifactId>
             <version>${stormpot.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jctools</groupId>
+            <artifactId>jctools-core</artifactId>
+            <version>${jctools.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -187,6 +193,7 @@
         <fast.object.pool.version>2.2.1</fast.object.pool.version>
         <vibur.object.pool.version>26.0</vibur.object.pool.version>
         <stormpot.version>4.1</stormpot.version>
+        <jctools.version>4.0.5</jctools.version>
     </properties>
 
 </project>
