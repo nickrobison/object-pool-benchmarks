@@ -5,31 +5,30 @@ import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.function.Supplier;
 
-public class JCToolsObjectPoolBenchmark extends ObjectPoolBenchmark<TestObject> {
+public class AgronaObjectPoolBenchmark extends ObjectPoolBenchmark<TestObject> {
 
-    JCToolsObjectPool<TestObject> objectPool;
+    private AgronaObjectPool<TestObject> objectPool;
 
     @Override
     public void setupObjectPool() {
-
         final Supplier<TestObject> supplier = () -> new TestObject(true);
 
-        objectPool = new JCToolsObjectPool<>(supplier, poolSize);
+        this.objectPool = new AgronaObjectPool<>(supplier, poolSize);
     }
 
     @Override
     public void tearDownObjectPool() throws Exception {
-        objectPool.close();
+        this.objectPool.close();
     }
 
     @Override
     protected TestObject borrowObject() throws Exception {
-        return objectPool.borrow();
+        return this.objectPool.borrow();
     }
 
     @Override
     protected void releaseObject(TestObject object) throws Exception {
-        objectPool.offer(object);
+        this.objectPool.offer(object);
     }
 
     @Override
